@@ -1,0 +1,16 @@
+{
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        100
+    ],
+    "files.associations": {
+        "*.h": "c"
+    },
+    "clangd.path": "/opt/homebrew/opt/llvm/bin/clangd",
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}"
+    ],
+}
