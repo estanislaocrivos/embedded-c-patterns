@@ -4,6 +4,27 @@ This repository contains examples of design patterns implemented in embedded C. 
 
 The examples were developed based on the Martin K. Schröder course "Design Patterns in Embedded C" available on [Udemy](https://www.udemy.com/course/embedded-c-programming-design-patterns/?srsltid=AfmBOoq7tYXLs5xy7H3ZCYdd2eG4GdPBi336JkoWeg7D51fpguUF-v9z&couponCode=ST4MT20725A) (also available on YouTube).
 
+## Prerequisites
+
+To build and run this project locally, make sure you have the following installed:
+
+- A C compiler (`clang` or `gcc`)
+- [`make`](https://www.gnu.org/software/make/)
+- [`cmake`](https://cmake.org/) (only if using CMake-based build)
+
+You may check if you have these tools installed by running:
+
+```bash
+gcc --version
+clang --version
+make --version
+cmake --version
+```
+
+## Building the Project
+
+You may build and run the project using the provided `run.sh` script. This script will compile the project and execute the resulting binary.
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
