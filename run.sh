@@ -2,10 +2,13 @@
 
 set -e
 
+mkdir -p build
 echo "Compiling..."
+cd build
 make
+cd ..
 
-BIN="./bin"
+BIN="build/emb-c-design-patterns"
 
 if [ -f "$BIN" ]; then
     echo "Executing $BIN..."
