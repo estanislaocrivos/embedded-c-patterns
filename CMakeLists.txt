@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(my_c_project C)
+project(emb-c-design-patterns C)
 
 set(CMAKE_C_STANDARD 11)
 
