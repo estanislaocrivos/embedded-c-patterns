@@ -2,6 +2,38 @@
 
 /* ============================================================================================== */
 
+void led_on_driver_x(void)
+{
+    printf("Setting the LED on, on device X...\n");
+}
+
+void led_off_driver_x(void)
+{
+    printf("Setting the LED off, on device X...\n");
+}
+
+void led_toggle_driver_x(void)
+{
+    printf("Toggling the LED, on device X...\n");
+}
+
+void led_on_driver_y(void)
+{
+    printf("Setting the LED on, on device Y...\n");
+}
+
+void led_off_driver_y(void)
+{
+    printf("Setting the LED off, on device Y...\n");
+}
+
+void led_toggle_driver_y(void)
+{
+    printf("Toggling the LED, on device Y...\n");
+}
+
+/* ============================================================================================== */
+
 int main(void)
 {
     /* Object pattern */
@@ -12,6 +44,24 @@ int main(void)
     uint8_t value = 255;
     object.set_data_value(&object, index, value);
     printf("Object data @ [%d] = %d\n", index, value);
+
+    /* ========================================================================================== */
+
+    /* Dependency inversion principle applied through dependency injection. Here you can set the
+     * drivers to be used for handling LEDs X and Y through the LED interface, common to all LEDs.
+     * This allows polymorphism. */
+
+    led_iface_t led_x;
+    led_iface_init(&led_x, led_toggle_driver_x, led_on_driver_x, led_off_driver_x);
+
+    led_iface_t led_y;
+    led_iface_init(&led_y, led_toggle_driver_y, led_on_driver_y, led_off_driver_y);
+
+    led_x.on();
+    led_x.off();
+    led_y.on();
+    led_y.off();
+
     return 0;
 }
 
