@@ -1,2 +1,3 @@
 build/
-bin
+.cache/
+run_precommit.sh

@@ -25,6 +25,10 @@ cmake --version
 
 You may build and run the project using the provided `run.sh` script. This script will compile the project and execute the resulting binary.
 
+## Object pattern
+
+The object pattern is a design pattern that encapsulates data and behavior in a single structure, similar to an object in object-oriented programming. It allows for better organization of code and promotes encapsulation. The object pattern was implemented in the `object` source and header files.
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
