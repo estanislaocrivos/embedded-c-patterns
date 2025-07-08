@@ -36,7 +36,10 @@ void led_toggle_driver_y(void)
 
 int main(void)
 {
+    /* ========================================================================================== */
+
     /* Object pattern */
+
     my_object_t object;
     object_init(&object);
     object.print_something(&object);
@@ -49,7 +52,7 @@ int main(void)
 
     /* Dependency inversion principle applied through dependency injection. Here you can set the
      * drivers to be used for handling LEDs X and Y through the LED interface, common to all LEDs.
-     * This allows polymorphism. */
+     * This allows polymorphism and higher abstraction/low coupling. */
 
     led_iface_t led_x;
     led_iface_init(&led_x, led_toggle_driver_x, led_on_driver_x, led_off_driver_x);
@@ -61,6 +64,8 @@ int main(void)
     led_x.off();
     led_y.on();
     led_y.off();
+
+    /* ========================================================================================== */
 
     return 0;
 }
