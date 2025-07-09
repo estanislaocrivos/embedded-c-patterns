@@ -7,6 +7,10 @@
 
 /* ============================================================================================== */
 
+/* In the singleton pattern the data structure is private. The API only exposes methods for
+ * initializing, reading and writing data to the structure, but it cannot be accesed directly from
+ * outside. */
+
 typedef struct
 {
     uint8_t data_a;
@@ -21,14 +25,17 @@ static singleton_obj_t _singleton_object;
 
 void singleton_init(void)
 {
+    /* Here you may disable interrupts to lock access to memory for write op. */
     memset(&_singleton_object, 0, sizeof(singleton_obj_t));
     /* Here you may set init. values for each parameter inside the struct. */
+    /* Release lock */
 }
 
 /* ============================================================================================== */
 
 void singleton_set_data(char data_id, uint8_t value)
 {
+    /* Here you may disable interrupts to lock access to memory for write op. */
     switch (data_id)
     {
         case 'a':
@@ -51,6 +58,7 @@ void singleton_set_data(char data_id, uint8_t value)
             break;
         }
     }
+    /* Release lock */
 }
 
 /* ============================================================================================== */
