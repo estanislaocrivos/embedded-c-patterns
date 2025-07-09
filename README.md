@@ -14,6 +14,10 @@ The object pattern is a design pattern that encapsulates data and behavior in a 
 
 The interface pattern defines a contract for behavior that can be implemented by different objects. It allows for polymorphism and decouples the code from specific implementations. The interface pattern was implemented in the `interface` source and header files.
 
+### Singleton pattern
+
+The singleton pattern ensures that a class has only one instance and provides a global point of access to it. This is useful in embedded systems where resources are limited and you want to avoid multiple instances of a resource-intensive object. The singleton pattern was implemented in the `singleton` source and header files.
+
 ## Prerequisites
 
 To build and run this project locally, make sure you have the following installed:

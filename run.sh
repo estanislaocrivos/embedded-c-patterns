@@ -5,6 +5,7 @@ set -e
 mkdir -p build
 echo "Compiling..."
 cd build
+cmake ..
 make
 cd ..
 

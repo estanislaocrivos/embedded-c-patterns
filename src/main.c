@@ -1,4 +1,6 @@
 #include "../inc/main.h"
+#include <stdio.h>
+#include "singleton.h"
 
 /* ============================================================================================== */
 
@@ -64,6 +66,18 @@ int main(void)
     led_x.off();
     led_y.on();
     led_y.off();
+
+    /* ========================================================================================== */
+
+    /* Singleton pattern */
+
+    singleton_init();
+    singleton_set_data('a', 16);
+    singleton_set_data('b', 32);
+    singleton_set_data('c', 64);
+    printf("Singleton data 'a' = %d\n", singleton_get_data('a'));
+    printf("Singleton data 'b' = %d\n", singleton_get_data('b'));
+    printf("Singleton data 'c' = %d\n", singleton_get_data('c'));
 
     /* ========================================================================================== */
 
