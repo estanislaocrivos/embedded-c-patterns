@@ -14,9 +14,13 @@ The object pattern is a design pattern that encapsulates data and behavior in a 
 
 The interface pattern defines a contract for behavior that can be implemented by different objects. It allows for polymorphism and decouples the code from specific implementations. The interface pattern was implemented in the `interface` source and header files.
 
-### Singleton pattern
+### Singleton object pattern
 
-The singleton pattern ensures that a class has only one instance and provides a global point of access to it. This is useful in embedded systems where resources are limited and you want to avoid multiple instances of a resource-intensive object. The singleton pattern was implemented in the `singleton` source and header files.
+The singleton object pattern ensures that a class has only one instance and provides a global point of access to it. This is useful in embedded systems where resources are limited and you want to avoid multiple instances of a resource-intensive object. The singleton pattern was implemented in the `singleton` source and header files.
+
+### Opaque object pattern
+
+The opaque object pattern is a design pattern that hides the implementation details of an object from the user. It provides a clean interface for interacting with the object while keeping its internal structure hidden. This pattern is useful for encapsulating complex data structures and providing a simple API for users. The opaque object pattern was implemented in the `opaque` source and header files. This patter allows for the creation of multiple instances of the same object type.
 
 ## Prerequisites
 
