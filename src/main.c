@@ -1,8 +1,4 @@
 #include "../inc/main.h"
-#include <stdio.h>
-#include <alloca.h>
-#include "opaque.h"
-#include "singleton.h"
 
 /* ============================================================================================== */
 
@@ -94,9 +90,9 @@ int main(void)
     opaque_obj_set_data(op_object_1, 'a', 16);
     opaque_obj_set_data(op_object_1, 'b', 32);
     opaque_obj_set_data(op_object_1, 'c', 64);
-    printf("Opaque object data 'a' = %d\n", opaque_obj_get_data(op_object_1, 'a'));
-    printf("Opaque object data 'b' = %d\n", opaque_obj_get_data(op_object_1, 'b'));
-    printf("Opaque object data 'c' = %d\n", opaque_obj_get_data(op_object_1, 'c'));
+    printf("Opaque object 1 data 'a' = %d\n", opaque_obj_get_data(op_object_1, 'a'));
+    printf("Opaque object 1 data 'b' = %d\n", opaque_obj_get_data(op_object_1, 'b'));
+    printf("Opaque object 1 data 'c' = %d\n", opaque_obj_get_data(op_object_1, 'c'));
 
     /* Using this pattern you can hide all struct. members but create many objects of the same kind
      */
@@ -105,9 +101,9 @@ int main(void)
     opaque_obj_set_data(op_object_2, 'a', 2);
     opaque_obj_set_data(op_object_2, 'b', 4);
     opaque_obj_set_data(op_object_2, 'c', 8);
-    printf("Opaque object data 'a' = %d\n", opaque_obj_get_data(op_object_2, 'a'));
-    printf("Opaque object data 'b' = %d\n", opaque_obj_get_data(op_object_2, 'b'));
-    printf("Opaque object data 'c' = %d\n", opaque_obj_get_data(op_object_2, 'c'));
+    printf("Opaque object 2 data 'a' = %d\n", opaque_obj_get_data(op_object_2, 'a'));
+    printf("Opaque object 2 data 'b' = %d\n", opaque_obj_get_data(op_object_2, 'b'));
+    printf("Opaque object 2 data 'c' = %d\n", opaque_obj_get_data(op_object_2, 'c'));
 
     /* Using new/free methods for object allocation on the heap (uses malloc() internally) */
     struct opaque* op_object = opaque_obj_new();
@@ -118,6 +114,8 @@ int main(void)
     printf("Opaque object data 'b' = %d\n", opaque_obj_get_data(op_object, 'b'));
     printf("Opaque object data 'c' = %d\n", opaque_obj_get_data(op_object, 'c'));
     opaque_obj_free(&op_object); /* Needs ptr. to ptr. */
+
+    /* ========================================================================================== */
 
     return 0;
 }
