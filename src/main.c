@@ -117,6 +117,17 @@ int main(void)
 
     /* ========================================================================================== */
 
+    /* Factory pattern */
+
+    shape_t* c = shape_create(SHAPE_CIRCLE);
+    shape_t* r = shape_create(SHAPE_RECTANGLE);
+    shape_draw(c);
+    shape_draw(r);
+    shape_destroy(c);
+    shape_destroy(r);
+
+    /* ========================================================================================== */
+
     return 0;
 }
 
