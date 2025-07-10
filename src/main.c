@@ -107,9 +107,9 @@ int main(void)
 
     /* Using new/free methods for object allocation on the heap (uses malloc() internally) */
     struct opaque* op_object = opaque_obj_new();
-    opaque_obj_set_data(op_object, 'a', 4);
-    opaque_obj_set_data(op_object, 'b', 6);
-    opaque_obj_set_data(op_object, 'c', 12);
+    opaque_obj_set_data(op_object, 'a', 1);
+    opaque_obj_set_data(op_object, 'b', 2);
+    opaque_obj_set_data(op_object, 'c', 4);
     printf("Opaque object data 'a' = %d\n", opaque_obj_get_data(op_object, 'a'));
     printf("Opaque object data 'b' = %d\n", opaque_obj_get_data(op_object, 'b'));
     printf("Opaque object data 'c' = %d\n", opaque_obj_get_data(op_object, 'c'));
