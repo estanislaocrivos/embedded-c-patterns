@@ -11,6 +11,7 @@
 #include "object.h"
 #include "interface.h"
 #include "singleton.h"
+#include "opaque.h"
 
 /* ============================================================================================== */
 
