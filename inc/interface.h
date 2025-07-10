@@ -20,6 +20,13 @@ typedef struct
 
 /* ============================================================================================== */
 
+/**
+ * @brief Initializes the LED interface with the provided driver functions.
+ * @param self Pointer to the LED interface structure to be initialized.
+ * @param led_toggle_driver Function pointer for toggling the LED.
+ * @param led_on_driver Function pointer for turning the LED on.
+ * @param led_off_driver Function pointer for turning the LED off.
+ */
 void led_iface_init(led_iface_t* self,
                     led_toggle_t led_toggle_driver,
                     led_on_t     led_on_driver,
