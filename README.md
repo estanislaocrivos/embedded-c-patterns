@@ -22,6 +22,10 @@ The singleton object pattern ensures that a class has only one instance and prov
 
 The opaque object pattern is a design pattern that hides the implementation details of an object from the user. It provides a clean interface for interacting with the object while keeping its internal structure hidden. This pattern is useful for encapsulating complex data structures and providing a simple API for users. The opaque object pattern was implemented in the `opaque` source and header files. This patter allows for the creation of multiple instances of the same object type.
 
+## Factory pattern
+
+The factory pattern is a creational design pattern that provides an interface for creating different objects with a common base interface. It allows for flexibility in object creation based on the available types. The factory pattern was implemented in the `factory` source and header files.
+
 ## Prerequisites
 
 To build and run this project locally, make sure you have the following installed:

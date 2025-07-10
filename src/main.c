@@ -107,13 +107,24 @@ int main(void)
 
     /* Using new/free methods for object allocation on the heap (uses malloc() internally) */
     struct opaque* op_object = opaque_obj_new();
-    opaque_obj_set_data(op_object, 'a', 4);
-    opaque_obj_set_data(op_object, 'b', 6);
-    opaque_obj_set_data(op_object, 'c', 12);
+    opaque_obj_set_data(op_object, 'a', 1);
+    opaque_obj_set_data(op_object, 'b', 2);
+    opaque_obj_set_data(op_object, 'c', 4);
     printf("Opaque object data 'a' = %d\n", opaque_obj_get_data(op_object, 'a'));
     printf("Opaque object data 'b' = %d\n", opaque_obj_get_data(op_object, 'b'));
     printf("Opaque object data 'c' = %d\n", opaque_obj_get_data(op_object, 'c'));
     opaque_obj_free(&op_object); /* Needs ptr. to ptr. */
+
+    /* ========================================================================================== */
+
+    /* Factory pattern */
+
+    shape_t* c = shape_create(SHAPE_CIRCLE);
+    shape_t* r = shape_create(SHAPE_RECTANGLE);
+    shape_draw(c);
+    shape_draw(r);
+    shape_destroy(c);
+    shape_destroy(r);
 
     /* ========================================================================================== */
 
