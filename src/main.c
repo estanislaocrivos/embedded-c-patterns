@@ -79,7 +79,7 @@ int main(void)
     /* Interface pattern */
     printf("\nInterface pattern example:\n");
 
-    /* Dependency inversion principle applied through dependency injection. Here you can set the
+    /* By applying the dependency inversion principle through dependency injection, you can set the
      * drivers to be used for handling LEDs X and Y through the LED interface, common to all LEDs.
      * This allows polymorphism and higher abstraction/low coupling. */
 
