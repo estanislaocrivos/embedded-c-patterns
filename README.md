@@ -30,6 +30,10 @@ The factory pattern is a creational design pattern that provides an interface fo
 
 The callback pattern, also known as the observer pattern, allows for the registration of callback functions that can be invoked when certain events occur. This is useful in embedded systems where you want to notify multiple components about specific events without tightly coupling them. The callback pattern was implemented in the `callback` source and header files. An example is provided in the `main` source file, where a UART driver (implemented on the `minimal_driver` library) notifies registered observers when a byte is received.
 
+### Inheritance pattern
+
+The inheritance pattern allows for the creation of derived classes that inherit properties and methods from a base class. This promotes code reuse and allows for polymorphism. The inheritance pattern was implemented in the `inheritance` source and header files. An example is provided in the `main` source file, where a derived object inherits from a base object and adds additional functionality.
+
 ## Prerequisites
 
 To build and run this project locally, make sure you have the following installed:
