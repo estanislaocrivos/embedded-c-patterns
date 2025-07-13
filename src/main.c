@@ -1,4 +1,23 @@
 #include "../inc/main.h"
+#include "callback.h"
+#include "minimal_driver.h"
+
+/* ============================================================================================== */
+
+void print_observer_on_byte(struct uart_observer* self, uint8_t byte)
+{
+    (void)self;
+    printf("Observer received byte: 0x%02X\n", byte);
+}
+
+static uart_observer_list_t observer_list;
+
+/* This callback function is expected to be called every time a byte arrives through the UART
+ * interface */
+void uart_on_byte(uint8_t byte)
+{
+    uart_notify_observers(&observer_list, byte);
+}
 
 /* ============================================================================================== */
 
@@ -125,6 +144,20 @@ int main(void)
     shape_draw(r);
     shape_destroy(c);
     shape_destroy(r);
+
+    /* ========================================================================================== */
+
+    /* Observer/callback pattern */
+
+    uart_observer_list_init(&observer_list);
+    uart_observer_t observer_1 = {.next = NULL, .on_byte = print_observer_on_byte};
+    uart_observer_t observer_2 = {.next = NULL, .on_byte = print_observer_on_byte};
+    uart_register_observer(&observer_list, &observer_1);
+    uart_register_observer(&observer_list, &observer_2);
+    uart_driver_set_rx_callback(uart_on_byte);
+
+    /* Emulate a call to the UART driver isr to trigger observers */
+    uart_isr();
 
     /* ========================================================================================== */
 

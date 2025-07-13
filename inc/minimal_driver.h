@@ -1,21 +1,18 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MINIMAL_DRIVER_H
+#define MINIMAL_DRIVER_H
 
 /* ============================================================================================== */
 
-#include <stdio.h>
 #include <stdint.h>
-#include <alloca.h>
 
 /* ============================================================================================== */
 
-#include "object.h"
-#include "interface.h"
-#include "singleton.h"
-#include "opaque.h"
-#include "factory.h"
-#include "callback.h"
-#include "minimal_driver.h"
+typedef void (*uart_rx_isr_callback_t)(uint8_t byte);
+
+void uart_driver_set_rx_callback(uart_rx_isr_callback_t ob);
+
+/* Exposed only for test */
+void uart_isr(void);
 
 /* ============================================================================================== */
 
