@@ -12,19 +12,23 @@ The object pattern is a design pattern that encapsulates data and behavior in a 
 
 ### Interface pattern
 
-The interface pattern defines a contract for behavior that can be implemented by different objects. It allows for polymorphism and decouples the code from specific implementations. The interface pattern was implemented in the `interface` source and header files.
+The interface pattern defines a contract for behavior that can be implemented by different objects. It allows for polymorphism and decouples the code from specific implementations. The interface pattern was implemented in the `interface` source and header files. An example is provided in the `main` source file, where an interface is used to define a common behavior for different objects.
 
 ### Singleton object pattern
 
-The singleton object pattern ensures that a class has only one instance and provides a global point of access to it. This is useful in embedded systems where resources are limited and you want to avoid multiple instances of a resource-intensive object. The singleton pattern was implemented in the `singleton` source and header files.
+The singleton object pattern ensures that a class has only one instance and provides a global point of access to it. This is useful in embedded systems where resources are limited and you want to avoid multiple instances of a resource-intensive object. The singleton pattern was implemented in the `singleton` source and header files. An example is provided in the `main` source file, where a singleton object is created and used.
 
 ### Opaque object pattern
 
-The opaque object pattern is a design pattern that hides the implementation details of an object from the user. It provides a clean interface for interacting with the object while keeping its internal structure hidden. This pattern is useful for encapsulating complex data structures and providing a simple API for users. The opaque object pattern was implemented in the `opaque` source and header files. This patter allows for the creation of multiple instances of the same object type.
+The opaque object pattern is a design pattern that hides the implementation details of an object from the user. It provides a clean interface for interacting with the object while keeping its internal structure hidden. This pattern is useful for encapsulating complex data structures and providing a simple API for users. The opaque object pattern was implemented in the `opaque` source and header files. This patter allows for the creation of multiple instances of the same object type. An example is provided in the `main` source file, where multiple instances of an opaque object are created and used.
 
 ## Factory pattern
 
-The factory pattern is a creational design pattern that provides an interface for creating different objects with a common base interface. It allows for flexibility in object creation based on the available types. The factory pattern was implemented in the `factory` source and header files.
+The factory pattern is a creational design pattern that provides an interface for creating different objects with a common base interface. It allows for flexibility in object creation based on the available types. The factory pattern was implemented in the `factory` source and header files. An example is provided in the `main` source file, where a factory function creates instances of different objects based on the type requested.
+
+## Callback (or Observer) pattern
+
+The callback pattern, also known as the observer pattern, allows for the registration of callback functions that can be invoked when certain events occur. This is useful in embedded systems where you want to notify multiple components about specific events without tightly coupling them. The callback pattern was implemented in the `callback` source and header files. An example is provided in the `main` source file, where a UART driver (implemented on the `minimal_driver` library) notifies registered observers when a byte is received.
 
 ## Prerequisites
 

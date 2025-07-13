@@ -1,25 +1,11 @@
 #include "../inc/main.h"
+#include <stdio.h>
 #include "callback.h"
 #include "minimal_driver.h"
 
 /* ============================================================================================== */
 
-void print_observer_on_byte(struct uart_observer* self, uint8_t byte)
-{
-    (void)self;
-    printf("Observer received byte: 0x%02X\n", byte);
-}
-
-static uart_observer_list_t observer_list;
-
-/* This callback function is expected to be called every time a byte arrives through the UART
- * interface */
-void uart_on_byte(uint8_t byte)
-{
-    uart_notify_observers(&observer_list, byte);
-}
-
-/* ============================================================================================== */
+/* Auxiliaries for interface pattern */
 
 void led_on_driver_x(void)
 {
@@ -53,11 +39,32 @@ void led_toggle_driver_y(void)
 
 /* ============================================================================================== */
 
+/* Auxiliaries for observer pattern example */
+
+void print_observer_on_byte(struct uart_observer* self, uint8_t byte)
+{
+    (void)self;
+    printf("Observer received byte: 0x%02X\n", byte);
+}
+
+static uart_observer_list_t observer_list;
+
+/* This callback function is expected to be called every time a byte arrives through the UART
+ * interface */
+void uart_on_byte(uint8_t byte)
+{
+    printf("Callback function called from inside the UART driver. Notifying observers...\n");
+    uart_notify_observers(&observer_list, byte);
+}
+
+/* ============================================================================================== */
+
 int main(void)
 {
     /* ========================================================================================== */
 
     /* Object pattern */
+    printf("Object pattern example:\n");
 
     my_object_t object;
     object_init(&object);
@@ -70,6 +77,7 @@ int main(void)
     /* ========================================================================================== */
 
     /* Interface pattern */
+    printf("\nInterface pattern example:\n");
 
     /* Dependency inversion principle applied through dependency injection. Here you can set the
      * drivers to be used for handling LEDs X and Y through the LED interface, common to all LEDs.
@@ -89,6 +97,7 @@ int main(void)
     /* ========================================================================================== */
 
     /* Singleton pattern */
+    printf("\nSingleton pattern example:\n");
 
     singleton_init();
     singleton_set_data('a', 16);
@@ -101,6 +110,7 @@ int main(void)
     /* ========================================================================================== */
 
     /* Opaque pattern */
+    printf("\nOpaque pattern example:\n");
 
     /* Using alloca() for object allocation on stack. Create a pointer to struct and assign it to
      * the opaque object allocated on stack */
@@ -137,6 +147,7 @@ int main(void)
     /* ========================================================================================== */
 
     /* Factory pattern */
+    printf("\nFactory pattern example:\n");
 
     shape_t* c = shape_create(SHAPE_CIRCLE);
     shape_t* r = shape_create(SHAPE_RECTANGLE);
@@ -148,16 +159,20 @@ int main(void)
     /* ========================================================================================== */
 
     /* Observer/callback pattern */
+    printf("\nCallback pattern example:\n");
 
+    /* Initialize global observer list and add two observers */
     uart_observer_list_init(&observer_list);
     uart_observer_t observer_1 = {.next = NULL, .on_byte = print_observer_on_byte};
     uart_observer_t observer_2 = {.next = NULL, .on_byte = print_observer_on_byte};
     uart_register_observer(&observer_list, &observer_1);
     uart_register_observer(&observer_list, &observer_2);
+
+    /* Register local function as callback function for the uart driver */
     uart_driver_set_rx_callback(uart_on_byte);
 
     /* Emulate a call to the UART driver isr to trigger observers */
-    uart_isr();
+    uart_driver_isr();
 
     /* ========================================================================================== */
 
