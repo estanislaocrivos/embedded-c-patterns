@@ -16,6 +16,7 @@
 #include "factory.h"
 #include "callback.h"
 #include "minimal_driver.h"
+#include "inheritance.h"
 
 /* ============================================================================================== */
 

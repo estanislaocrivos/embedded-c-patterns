@@ -10,7 +10,7 @@
 static void object_method(void* self)
 {
     my_object_t* obj = (my_object_t*)self;
-    printf("Hello, from inside the object method...\n");
+    printf("Hello, from inside the my_object class, object_method() method...\n");
 }
 
 /* ============================================================================================== */

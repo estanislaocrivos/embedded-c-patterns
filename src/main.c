@@ -1,4 +1,6 @@
 #include "../inc/main.h"
+#include <stdio.h>
+#include "inheritance.h"
 
 /* ============================================================================================== */
 
@@ -170,6 +172,21 @@ int main(void)
 
     /* Emulate a call to the UART driver isr to trigger observers */
     uart_driver_isr();
+
+    /* ========================================================================================== */
+
+    /* Inheritance pattern */
+    printf("\nInheritance pattern example:\n");
+
+    derived_object_t derived_object;
+    derived_object_init(&derived_object);
+
+    printf("Accessing derived class base classes methods...\n");
+    derived_object.object_base.print_something(&derived_object.object_base);
+    derived_object.led_iface.on();
+
+    printf("Accessing derived class added method...\n");
+    derived_object.added_method(&derived_object);
 
     /* ========================================================================================== */
 
