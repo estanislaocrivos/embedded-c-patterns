@@ -1,7 +1,4 @@
 #include "../inc/main.h"
-#include <stdio.h>
-#include "callback.h"
-#include "minimal_driver.h"
 
 /* ============================================================================================== */
 
