@@ -1,6 +1,4 @@
 #include "../inc/main.h"
-#include <stdio.h>
-#include "inheritance.h"
 
 /* ============================================================================================== */
 
@@ -187,6 +185,23 @@ int main(void)
 
     printf("Accessing derived class added method...\n");
     derived_object.added_method(&derived_object);
+
+    /* ========================================================================================== */
+
+    /* Virtual API pattern */
+    printf("\nVirtual API pattern example:\n");
+
+    stm32_uart_config_t stm32_uart_config = {.baudrate = 115200, .port = 1};
+    stm32_uart_t        stm32_uart;
+    stm32_uart_construct(&stm32_uart, &stm32_uart_config);
+
+    const uint8_t buffer_size = 8;
+    uint8_t       buffer[buffer_size];
+
+    serial_t* serial = (serial_t*)(&stm32_uart);
+    serial->init(serial);
+    serial->read(serial, buffer, buffer_size);
+    serial->write(serial, buffer, buffer_size);
 
     /* ========================================================================================== */
 
