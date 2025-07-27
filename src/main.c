@@ -205,6 +205,7 @@ int main(void)
     serial->init(serial);
     serial->read(serial, buffer, buffer_size);
     serial->write(serial, buffer, buffer_size);
+    serial->change_baudrate(serial, 155);
 
     /* ========================================================================================== */
 

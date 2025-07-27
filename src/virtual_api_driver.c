@@ -1,4 +1,6 @@
 #include "virtual_api_driver.h"
+#include <_string.h>
+#include <stdint.h>
 
 /* ============================================================================================== */
 
@@ -36,7 +38,7 @@ static uint8_t stm32_write(void* self, const uint8_t* buf, size_t len)
 
 /* ============================================================================================== */
 
-/* Set the common API methods */
+/* Set the common API methods. All API methods must point to an implementation */
 static const serial_t stm32_uart_api
     = {.init = stm32_init, .read = stm32_read, .write = stm32_write};
 
