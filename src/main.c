@@ -1,6 +1,4 @@
 #include "../inc/main.h"
-#include <stdio.h>
-#include "inheritance.h"
 
 /* ============================================================================================== */
 
@@ -187,6 +185,37 @@ int main(void)
 
     printf("Accessing derived class added method...\n");
     derived_object.added_method(&derived_object);
+
+    /* ========================================================================================== */
+
+    /* Virtual API pattern */
+    printf("\nVirtual API pattern example:\n");
+
+    /* Create a driver instance and configure it */
+    stm32_uart_config_t stm32_uart_config = {.baudrate = 115200, .port = 1};
+    stm32_uart_t        stm32_uart;
+    stm32_uart_construct(&stm32_uart, &stm32_uart_config);
+
+    const uint8_t buffer_size = 8;
+    uint8_t       buffer[buffer_size];
+
+    /* Construct a serial api instance and pass the driver instance as parameter. Now the api
+     * methods directly call the driver methods */
+    serial_t* serial = serial_init(&stm32_uart);
+    serial->init(serial);
+    serial->read(serial, buffer, buffer_size);
+    serial->write(serial, buffer, buffer_size);
+
+    /* Example of changing baudrate, if the method is implemented */
+    if (serial->change_baudrate)  // Check if the method is implemented
+    {
+        printf("Changing baudrate...\n");
+        serial->change_baudrate(serial, 9600);
+    }
+    else
+    {
+        printf("Change baudrate method not implemented!\n");
+    }
 
     /* ========================================================================================== */
 

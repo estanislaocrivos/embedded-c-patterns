@@ -17,6 +17,8 @@
 #include "callback.h"
 #include "minimal_driver.h"
 #include "inheritance.h"
+#include "virtual_api.h"
+#include "virtual_api_driver.h"
 
 /* ============================================================================================== */
 
