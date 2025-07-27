@@ -205,7 +205,17 @@ int main(void)
     serial->init(serial);
     serial->read(serial, buffer, buffer_size);
     serial->write(serial, buffer, buffer_size);
-    serial->change_baudrate(serial, 155);
+
+    /* Example of changing baudrate, if the method is implemented */
+    if (serial->change_baudrate)  // Check if the method is implemented
+    {
+        printf("Changing baudrate...\n");
+        serial->change_baudrate(serial, 9600);
+    }
+    else
+    {
+        printf("Change baudrate method not implemented!\n");
+    }
 
     /* ========================================================================================== */
 

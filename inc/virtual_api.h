@@ -17,8 +17,9 @@ typedef struct
     uint8_t (*read)(void* self, uint8_t* buf, size_t len);
     uint8_t (*write)(void* self, const uint8_t* buf, size_t len);
     /* Here you may add new methods for added functionalities. Then, each driver which implements
-     * this api must also implement the new functionalities (at least a mock). */
-    // uint8_t (*change_baudrate)(void* self, uint32_t baudrate);  // Example
+     * this api must also implement the new functionalities (at least a mock). Else, you can check
+     * if each method is implemented on runtime, by checking if the function pointer is not NULL */
+    uint8_t (*change_baudrate)(void* self, uint32_t baudrate);  // Example
 } serial_t;
 
 /* ============================================================================================== */
