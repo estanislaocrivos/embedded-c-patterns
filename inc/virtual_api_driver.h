@@ -14,12 +14,14 @@
 
 /* ============================================================================================== */
 
+/* Driver configuration*/
 typedef struct
 {
     uint32_t baudrate;
     uint8_t  port;
 } stm32_uart_config_t;
 
+/* This implementation strictly requires the first element of the driver struct to be the HAL api */
 typedef struct
 {
     serial_t             api;
@@ -28,7 +30,7 @@ typedef struct
 
 /* ============================================================================================== */
 
-void stm32_uart_construct(stm32_uart_t* obj, stm32_uart_config_t* config);
+void stm32_uart_construct(stm32_uart_t* self, stm32_uart_config_t* config);
 
 /* ============================================================================================== */
 

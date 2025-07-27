@@ -42,11 +42,11 @@ static const serial_t stm32_uart_api
 
 /* ============================================================================================== */
 
-void stm32_uart_construct(stm32_uart_t* obj, stm32_uart_config_t* config)
+void stm32_uart_construct(stm32_uart_t* self, stm32_uart_config_t* config)
 {
-    memset(obj, 0, sizeof(*obj));
-    obj->api         = stm32_uart_api;
-    obj->uart_config = config;
+    memset(self, 0, sizeof(*self));
+    self->api         = stm32_uart_api;  // Assign the api methods to the driver methods
+    self->uart_config = config;
 }
 
 /* ============================================================================================== */
