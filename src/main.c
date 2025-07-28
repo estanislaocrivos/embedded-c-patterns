@@ -1,4 +1,5 @@
 #include "../inc/main.h"
+#include <stdint.h>
 
 /* ============================================================================================== */
 
@@ -215,6 +216,24 @@ int main(void)
     else
     {
         printf("Change baudrate method not implemented!\n");
+    }
+
+    /* ========================================================================================== */
+
+    /* Return value pattern */
+    printf("\nReturn value pattern example:\n");
+
+    for (uint8_t k = 0; k < 10; k += 1)
+    {
+        int8_t result = generic_function(k);
+        if (result >= 0)
+        {
+            printf("Function succeeded with success code: %d\n", result);
+        }
+        else
+        {
+            printf("Function failed with error code: %d\n", result);
+        }
     }
 
     /* ========================================================================================== */
