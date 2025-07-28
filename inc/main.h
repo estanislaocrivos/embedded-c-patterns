@@ -19,6 +19,7 @@
 #include "inheritance.h"
 #include "virtual_api.h"
 #include "virtual_api_driver.h"
+#include "return_value.h"
 
 /* ============================================================================================== */
 
