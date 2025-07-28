@@ -38,6 +38,10 @@ The inheritance pattern allows for the creation of derived classes that inherit 
 
 The virtual API pattern is a design pattern that allows for the creation of a common interface for different implementations. It provides a way to define a set of functions that can be overridden by derived classes, enabling polymorphism. The virtual API pattern was implemented in the `virtual_api` source and header files, along with the `virtual_api_driver` source and header files which implement a minimal driver for the virtual API. An example is provided in the `main` source file, where a serial API is used to define a common behavior for different drivers.
 
+### Return value pattern
+
+The return value pattern is a design pattern that uses return values to indicate the success or failure of a function. It allows for error handling and provides a way to communicate the result of an operation. The return value pattern was implemented in the `return_value` source and header files. An example is provided in the `main` source file, where a generic function returns different error codes based on the input parameter.
+
 ## Prerequisites
 
 To build and run this project locally, make sure you have the following installed:
